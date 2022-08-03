@@ -1,0 +1,15 @@
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Release\Project_Base_CLT.exe.config
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Release\Project_Base_CLT.exe
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Release\Project_Base_CLT.pdb
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Release\Oracle.DataAccess.dll
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.csproj.AssemblyReference.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.csproj.SuggestedBindingRedirects.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\f2.Form1.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\f2.hijo.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\f2.Properties.Resources.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.csproj.GenerateResource.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.exe.licenses
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.csproj.CoreCompileInputs.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.csproj.CopyComplete
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.exe
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Release\Project_Base_CLT.pdb

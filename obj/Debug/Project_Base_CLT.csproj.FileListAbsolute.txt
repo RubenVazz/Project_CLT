@@ -1,0 +1,50 @@
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Debug\Project_Base_CLT.exe.config
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Debug\Project_Base_CLT.exe
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Debug\Project_Base_CLT.pdb
+C:\Users\Guaspito\Downloads\Project_Base_CLT\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.csproj.AssemblyReference.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.csproj.SuggestedBindingRedirects.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\f2.Form1.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\f2.hijo.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\f2.Properties.Resources.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.csproj.GenerateResource.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.exe.licenses
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.csproj.CoreCompileInputs.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.csproj.CopyComplete
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.exe
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\Project_Base_CLT.pdb
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\f2.cliente.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\f2.ventas.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT\obj\Debug\f2.reportes.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\bin\Debug\Project_Base_CLT.exe.config
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\bin\Debug\Project_Base_CLT.exe
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\bin\Debug\Project_Base_CLT.pdb
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.AssemblyReference.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.SuggestedBindingRedirects.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\f2.Form1.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\f2.hijo.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\f2.Properties.Resources.resources
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.GenerateResource.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.exe.licenses
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.CoreCompileInputs.cache
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.CopyComplete
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.exe
+C:\Users\Guaspito\Downloads\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.pdb
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\bin\Debug\Project_Base_CLT.exe.config
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\bin\Debug\Project_Base_CLT.exe
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\bin\Debug\Project_Base_CLT.pdb
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\bin\Debug\Oracle.DataAccess.dll
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.AssemblyReference.cache
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.SuggestedBindingRedirects.cache
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\f2.Form1.resources
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\f2.hijo.resources
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\f2.Properties.Resources.resources
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.GenerateResource.cache
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.exe.licenses
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.CoreCompileInputs.cache
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.CopyComplete
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.exe
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.pdb
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\f2.frm_productos.resources
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\f2.frm_ventas.resources
