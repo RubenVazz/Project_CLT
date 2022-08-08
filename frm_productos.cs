@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace f2
@@ -25,7 +18,10 @@ namespace f2
 
         }
 
-        private void frm_productos_Load(object sender, EventArgs e) { }
+        private void frm_productos_Load(object sender, EventArgs e)
+        {
+            ListadoTabla();
+        }
 
         private void btnListarProducto_Click(object sender, EventArgs e)
         {
@@ -42,14 +38,14 @@ namespace f2
 
             if (txtPrecioProducto.Text.Equals(""))
             {
-                MessageBox.Show("El campo Precio no debe estar vacio","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("El campo Precio no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             float PRECIO = float.Parse(txtPrecioProducto.Text);
 
             if (txtProducto.Text.Equals(""))
             {
-                MessageBox.Show("El campo Producto no debe estar vacio","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo Producto no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string PRODUCTO = txtProducto.Text;
@@ -63,30 +59,33 @@ namespace f2
             string CANTIDAD = txtCantidadProducto.Text;
 
             string datos = capaNegociosProductos.sp_insertar_producto(PRODUCTO, PRECIO, CANTIDAD);
-
-
-            //else
-            //{
-            //    //lblErrorNombreProducto.Text = ("");
-            //    //lblErrorPrecio.Text = ("");
-            //    //lblErrorPrecio.Text = ("");
-
-            //    MessageBox.Show("Los Datos fueron guardados");
-
-
-            //}
-
+            Limpiar();
+            ListadoTabla();
         }
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-            
+
             if (txtCodProducto.Text.Equals(""))
             {
                 MessageBox.Show("El campo Codigo no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            capaNegociosProductos.sp_eliminar_producto(Convert.ToInt32(txtCodProducto.Text));
+
+            string mensaje = capaNegociosProductos.sp_eliminar_producto(Convert.ToInt32(txtCodProducto.Text));
+
+            if (mensaje.Equals("OK"))
+            {
+                MessageBox.Show("El producto fue eliminado");
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
+
+
+            Limpiar();
+            ListadoTabla();
 
         }
 
@@ -120,12 +119,66 @@ namespace f2
             }
             string PRODUCTO = txtProducto.Text;
 
-           
- 
-                string datos = capaNegociosProductos.SP_UPDATE_PRODUCTOS(PRODUCTO, PRECIO, CANTIDAD, CODIGO_PRODUCTO);
+            string mensaje = capaNegociosProductos.SP_UPDATE_PRODUCTOS(PRODUCTO, PRECIO, CANTIDAD, CODIGO_PRODUCTO);
 
+            if (mensaje.Equals("OK"))
+            {
+                MessageBox.Show("El producto fue modificado");
             }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
+
+            //string datos = capaNegociosProductos.SP_UPDATE_PRODUCTOS(PRODUCTO, PRECIO, CANTIDAD, CODIGO_PRODUCTO);
+            Limpiar();
+            ListadoTabla();
+
+        }
+
+        public void Limpiar()
+        {
+            txtCantidadProducto.Text = ("");
+            txtCodProducto.Text = ("");
+            txtPrecioProducto.Text = ("");
+            txtProducto.Text = ("");
+        }
+        public void exportarDatos(DataGridView datalistado)
+        {
+            Microsoft.Office.Interop.Excel.Application exportarExcel = new Microsoft.Office.Interop.Excel.Application();
+
+
+            exportarExcel.Application.Workbooks.Add(true);
+
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn columna in datalistado.Columns)
+            {
+                indiceColumna++;
+
+                exportarExcel.Cells[1, indiceColumna] = columna.Name;
+            }
+
+            int indiceFila = 0;
+            foreach (DataGridViewRow fila in datalistado.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+                foreach (DataGridViewColumn columna in datalistado.Columns)
+                {
+                    indiceColumna++;
+                    exportarExcel.Cells[indiceFila + 1, indiceColumna] = fila.Cells[columna.Name].Value;
+                }
+            }
+
+            exportarExcel.Visible = true;
+        }
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            exportarDatos(dgProducto);
         }
     }
+
+}
 
 

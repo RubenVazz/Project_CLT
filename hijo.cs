@@ -1,15 +1,9 @@
-using Oracle.DataAccess.Client;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace f2
 {
-    
+
     public partial class hijo : Form
     {
         /// <summary>
@@ -33,7 +27,10 @@ namespace f2
             this.capaNegociosHijo = capaNegociosPadre;
         }
 
-        private void hijo_Load(object sender, EventArgs e) { }
+        private void hijo_Load(object sender, EventArgs e)
+        {
+            ListadoTabla();
+        }
 
 
 
@@ -49,49 +46,153 @@ namespace f2
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string NOMBRE_CLIENTE = txtNombreCliente.Text;
-            string APELLIDO_CLIENTE = txtApellidoCliente.Text;
-
-            if (string.IsNullOrEmpty(txtNombreCliente.Text))
+            
+            if (txtNombreCliente.Text.Equals(""))
             {
-                lblErrorNombre.Text = ("El campo Nombre no debe estar vacio");
-                
+                MessageBox.Show("El campo Codigo no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNombreCliente.Focus();
+                return;
             }
-            else  if (string.IsNullOrEmpty(txtApellidoCliente.Text))
+            string NOMBRE_CLIENTE = txtNombreCliente.Text;
+            if (txtApellidoCliente.Text.Equals(""))
+            {                
+                MessageBox.Show("El campo Codigo no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtApellidoCliente.Focus();
+                return;
+            }
+            string APELLIDO_CLIENTE = txtApellidoCliente.Text;
+            string datos = capaNegociosHijo.sp_insertar_cliente(NOMBRE_CLIENTE, APELLIDO_CLIENTE);
+          
+            if (datos.Equals("OK"))
             {
-                lblErrorApellido.Text = ("El campo Apellido no debe estar vacio");
+                MessageBox.Show("Los Datos Fueron Guardados");
             }
             else
             {
-                lblErrorNombre.Text = ("");
-
-                string datos = capaNegociosHijo.sp_insertar_cliente(NOMBRE_CLIENTE, APELLIDO_CLIENTE);
-                MessageBox.Show("Los Datos fueron guardados");
+                MessageBox.Show(datos);
             }
-
-
+            limpiar();
+            ListadoTabla();
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCodCliente.Text))
+            if (txtCodCliente.Text.Equals(""))
             {
-                lblErrorCod.Text = ("El campo codigo no debe estar vacio");
+                MessageBox.Show("El campo Codigo no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string mensaje = capaNegociosHijo.sp_eliminar_cliente(Convert.ToInt32(txtCodCliente.Text));
+
+            if (mensaje.Equals("OK"))
+            {
+                MessageBox.Show("El cliente fue eliminado");
             }
             else
             {
-                capaNegociosHijo.sp_eliminar_cliente(Convert.ToInt32(txtCodCliente.Text));
+                MessageBox.Show(mensaje);
             }
+
+            limpiar();
+            ListadoTabla();
+           
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (txtCodCliente.Text.Equals(""))
+            {
+                MessageBox.Show("El campo Codigo no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int CODIGO_CLIENTE = Convert.ToInt32(txtCodCliente.Text);
+            if (txtNombreCliente.Text.Equals(""))
+            {
+                MessageBox.Show("El campo Nombre no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNombreCliente.Focus();
+                return;
+            }
             string NOMBRE_CLIENTE = txtNombreCliente.Text;
+            if (txtApellidoCliente.Text.Equals(""))
+            {
+                MessageBox.Show("El campo Apellido no debe estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtApellidoCliente.Focus();
+                return;
+            }
             string APELLIDO_CLIENTE = txtApellidoCliente.Text;
 
-            string datos = capaNegociosHijo.SP_UPDATE_CLIENTES(CODIGO_CLIENTE,NOMBRE_CLIENTE, APELLIDO_CLIENTE);
+            string mensaje = capaNegociosHijo.SP_UPDATE_CLIENTES(CODIGO_CLIENTE, NOMBRE_CLIENTE, APELLIDO_CLIENTE);
 
+            if (mensaje.Equals("OK"))
+            {
+                MessageBox.Show("El cliente fue actualizado");
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
+
+            
+            limpiar();
+            ListadoTabla();
+
+        }
+
+        public void limpiar()
+        {
+            txtApellidoCliente.Text = ("");
+            txtCodCliente.Text = ("");
+            txtNombreCliente.Text = ("");
+        }
+
+        public void exportarDatos(DataGridView datalistado)
+        {
+            Microsoft.Office.Interop.Excel.Application exportarExcel = new Microsoft.Office.Interop.Excel.Application();
+
+
+            exportarExcel.Application.Workbooks.Add(true);
+
+            int indiceColumna = 0;
+
+            foreach (DataGridViewColumn columna in datalistado.Columns)
+            {
+                indiceColumna++;
+
+                exportarExcel.Cells[1, indiceColumna] = columna.Name;
+            }
+
+            int indiceFila = 0;
+            foreach (DataGridViewRow fila in datalistado.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+                foreach (DataGridViewColumn columna in datalistado.Columns)
+                {
+                    indiceColumna++;
+                    exportarExcel.Cells[indiceFila + 1, indiceColumna] = fila.Cells[columna.Name].Value;
+                }
+            }
+
+            exportarExcel.Visible = true;
+        }
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            exportarDatos(dgCliente);
+        }
+        ErrorProvider errorP0 = new ErrorProvider();
+        private void txtCodCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          bool valida =  Validaciones.soloNUmeros(e);
+            if (!valida)
+            {
+                errorP0.SetError(txtCodCliente, "Solo Numeros");
+            }
+            else
+            {
+                errorP0.Clear();
+            }
         }
     }
 }

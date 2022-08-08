@@ -48,3 +48,7 @@ C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.
 C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.pdb
 C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\f2.frm_productos.resources
 C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\f2.frm_ventas.resources
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Interop.Excel.dll
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Interop.Office.dll
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Interop.VBIDE.dll
+C:\Users\rvazquez\Documents\Project_Base_CLT - Local\obj\Debug\Project_Base_CLT.csproj.ResolveComReference.cache

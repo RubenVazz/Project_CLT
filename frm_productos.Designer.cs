@@ -45,6 +45,7 @@
             this.lblErrorNombreProducto = new System.Windows.Forms.Label();
             this.lblErrorCantidad = new System.Windows.Forms.Label();
             this.lblErrorPrecio = new System.Windows.Forms.Label();
+            this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProducto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,12 +200,23 @@
             this.lblErrorPrecio.Size = new System.Drawing.Size(0, 16);
             this.lblErrorPrecio.TabIndex = 27;
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(406, 342);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(111, 39);
+            this.btnExportar.TabIndex = 28;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // frm_productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(876, 436);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.lblErrorPrecio);
             this.Controls.Add(this.lblErrorCantidad);
             this.Controls.Add(this.lblErrorNombreProducto);
@@ -250,5 +262,6 @@
         private System.Windows.Forms.Label lblErrorNombreProducto;
         private System.Windows.Forms.Label lblErrorCantidad;
         private System.Windows.Forms.Label lblErrorPrecio;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

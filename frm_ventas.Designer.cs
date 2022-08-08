@@ -51,7 +51,12 @@
             this.lblErrorCantidad = new System.Windows.Forms.Label();
             this.lblErrorCodProducto = new System.Windows.Forms.Label();
             this.lblErrorCodVenta = new System.Windows.Forms.Label();
+            this.dgClientes = new System.Windows.Forms.DataGridView();
+            this.dgProductos = new System.Windows.Forms.DataGridView();
+            this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgVentas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreProducto
@@ -119,7 +124,7 @@
             this.dgVentas.Name = "dgVentas";
             this.dgVentas.RowHeadersWidth = 51;
             this.dgVentas.RowTemplate.Height = 24;
-            this.dgVentas.Size = new System.Drawing.Size(458, 324);
+            this.dgVentas.Size = new System.Drawing.Size(920, 241);
             this.dgVentas.TabIndex = 30;
             // 
             // txtProducto
@@ -255,12 +260,47 @@
             this.lblErrorCodVenta.Size = new System.Drawing.Size(0, 16);
             this.lblErrorCodVenta.TabIndex = 46;
             // 
+            // dgClientes
+            // 
+            this.dgClientes.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgClientes.Location = new System.Drawing.Point(387, 258);
+            this.dgClientes.Name = "dgClientes";
+            this.dgClientes.RowHeadersWidth = 51;
+            this.dgClientes.RowTemplate.Height = 24;
+            this.dgClientes.Size = new System.Drawing.Size(457, 241);
+            this.dgClientes.TabIndex = 47;
+            // 
+            // dgProductos
+            // 
+            this.dgProductos.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProductos.Location = new System.Drawing.Point(850, 258);
+            this.dgProductos.Name = "dgProductos";
+            this.dgProductos.RowHeadersWidth = 51;
+            this.dgProductos.RowTemplate.Height = 24;
+            this.dgProductos.Size = new System.Drawing.Size(457, 241);
+            this.dgProductos.TabIndex = 48;
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(12, 490);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(273, 39);
+            this.btnExportar.TabIndex = 49;
+            this.btnExportar.Text = "Exportar a Excel";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // frm_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1013, 557);
+            this.BackColor = System.Drawing.Color.Khaki;
+            this.ClientSize = new System.Drawing.Size(1447, 758);
+            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.dgProductos);
+            this.Controls.Add(this.dgClientes);
             this.Controls.Add(this.lblErrorCodVenta);
             this.Controls.Add(this.lblErrorCodProducto);
             this.Controls.Add(this.lblErrorCantidad);
@@ -285,9 +325,11 @@
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.lblCodProducto);
             this.Name = "frm_ventas";
-            this.Text = "frm_ventas";
+            this.Text = "Ventas";
             this.Load += new System.EventHandler(this.frm_ventas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVentas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,5 +360,8 @@
         private System.Windows.Forms.Label lblErrorCantidad;
         private System.Windows.Forms.Label lblErrorCodProducto;
         private System.Windows.Forms.Label lblErrorCodVenta;
+        private System.Windows.Forms.DataGridView dgClientes;
+        private System.Windows.Forms.DataGridView dgProductos;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

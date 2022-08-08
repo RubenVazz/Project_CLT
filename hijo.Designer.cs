@@ -42,6 +42,7 @@
             this.lblErrorCod = new System.Windows.Forms.Label();
             this.lblErrorNombre = new System.Windows.Forms.Label();
             this.lblErrorApellido = new System.Windows.Forms.Label();
+            this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +69,9 @@
             this.lblCodCliente.AutoSize = true;
             this.lblCodCliente.Location = new System.Drawing.Point(12, 35);
             this.lblCodCliente.Name = "lblCodCliente";
-            this.lblCodCliente.Size = new System.Drawing.Size(106, 16);
+            this.lblCodCliente.Size = new System.Drawing.Size(98, 16);
             this.lblCodCliente.TabIndex = 2;
-            this.lblCodCliente.Text = "Codigo Clieente:";
+            this.lblCodCliente.Text = "Codigo Cliente:";
             // 
             // txtCodCliente
             // 
@@ -79,6 +80,7 @@
             this.txtCodCliente.Name = "txtCodCliente";
             this.txtCodCliente.Size = new System.Drawing.Size(207, 22);
             this.txtCodCliente.TabIndex = 3;
+            this.txtCodCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodCliente_KeyPress);
             // 
             // txtApellidoCliente
             // 
@@ -171,12 +173,23 @@
             this.lblErrorApellido.Size = new System.Drawing.Size(0, 16);
             this.lblErrorApellido.TabIndex = 13;
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(392, 342);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(111, 35);
+            this.btnExportar.TabIndex = 14;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // hijo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(862, 508);
+            this.BackColor = System.Drawing.Color.Khaki;
+            this.ClientSize = new System.Drawing.Size(889, 508);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.lblErrorApellido);
             this.Controls.Add(this.lblErrorNombre);
             this.Controls.Add(this.lblErrorCod);
@@ -193,7 +206,7 @@
             this.Controls.Add(this.lblNombre);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "hijo";
-            this.Text = "hijo";
+            this.Text = "Clientes";
             this.Load += new System.EventHandler(this.hijo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).EndInit();
             this.ResumeLayout(false);
@@ -217,5 +230,6 @@
         private System.Windows.Forms.Label lblErrorCod;
         private System.Windows.Forms.Label lblErrorNombre;
         private System.Windows.Forms.Label lblErrorApellido;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

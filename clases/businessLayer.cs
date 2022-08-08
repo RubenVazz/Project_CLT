@@ -1,12 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using Oracle.DataAccess.Client;
-using Oracle.DataAccess.Types;
-using Oracle.DataAccess;
-using System.Data.OleDb;
-using System.Windows.Forms;
 
 namespace f2
 {
@@ -155,56 +149,7 @@ namespace f2
 
         }
 
-        /// <summary>
-        /// Ejemplo - String
-        /// </summary>
-        /// <param name="pi_descripcion"></param>
-        /// <param name="pi_ruc"></param>
-        /// <param name="pi_direccion"></param>
-        /// <param name="pi_telefono"></param>
-        /// <returns></returns>
-        //public string sp_inserta_clientes_clt(string pi_descripcion,
-        //                                         string pi_ruc,
-        //                                         string pi_direccion,
-        //                                         string pi_telefono)
-        //{
-        //    /* --
-        //    --
-        //    -- procedimiento para insertar los clientes de CLT
-        //    --
-
-        //        clt.pkg_abm_clientes_contabilidad.sp_inserta_clientes_clt(pi_descripcion => :pi_descripcion,
-        //                                                    pi_ruc => :pi_ruc,
-        //                                                    pi_direccion => :pi_direccion,
-        //                                                    pi_telefono => :pi_telefono,
-        //                                                    po_retorno => :po_retorno); */
-        //    string datos = "";
-        //    OracleConnection cone = new OracleConnection(cadenaDeConeccion);
-        //    OracleCommand coman = new OracleCommand("clt.pkg_abm_clientes_contabilidad.sp_inserta_clientes_clt", cone);
-        //    coman.CommandType = CommandType.StoredProcedure;
-
-        //    coman.Parameters.Add("pi_descripcion", pi_descripcion.Trim());
-        //    coman.Parameters.Add("pi_ruc", pi_ruc.Trim());
-        //    coman.Parameters.Add("pi_direccion", pi_direccion.Trim());
-        //    coman.Parameters.Add("pi_telefono", pi_telefono.Trim());
-
-        //    coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
-        //    coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
-        //    try
-        //    {
-        //        cone.Open();
-        //        coman.ExecuteNonQuery();
-        //        cone.Close();
-        //        datos = coman.Parameters["po_retorno"].Value.ToString();
-        //    }
-        //    catch
-        //    {
-        //        throw;
-
-        //    }
-        //    return datos;
-
-        //}
+        
         public DataTable SP_LISTAR_CLIENTES()
         {
             System.Data.DataTable ListaCliente = new DataTable();
@@ -275,8 +220,6 @@ namespace f2
                 adap.Fill(ListaVentas);
                 coman.Connection.Close();
                 coman.Connection.Dispose();
-
-
             }
             catch
             {
@@ -378,66 +321,86 @@ namespace f2
 
         }
 
-        public void sp_eliminar_cliente(int pi_codigo_cliente)
+        public string sp_eliminar_cliente(int pi_codigo_cliente)
         {
+            string datos = "";
+
             OracleConnection cone = new OracleConnection(cadenaDeConeccion);
             OracleCommand coman = new OracleCommand("USER_ORA.PKG_ABM.SP_DELETE_CLIENTES", cone);
             coman.CommandType = CommandType.StoredProcedure;
 
             coman.Parameters.Add("CODIGO_CLIENTE",pi_codigo_cliente);
+            coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
+            coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
 
             try
             {
                 cone.Open();
                 coman.ExecuteNonQuery();
                 cone.Close();
+                datos = coman.Parameters["po_retorno"].Value.ToString();
+
             }
             catch
             {
                 throw;
 
             }
+            return datos;
         }
-        public void sp_eliminar_producto(int pi_codigo_producto)
+        public string sp_eliminar_producto(int pi_codigo_producto)
         {
+            string datos = "";
+
             OracleConnection cone = new OracleConnection(cadenaDeConeccion);
             OracleCommand coman = new OracleCommand("USER_ORA.PKG_ABM_PRODUCTOS.SP_DELETE_PRODUCTOS", cone);
             coman.CommandType = CommandType.StoredProcedure;
 
             coman.Parameters.Add("CODIGO_PRODUCTO", pi_codigo_producto);
+            coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
+            coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
 
             try
             {
                 cone.Open();
                 coman.ExecuteNonQuery();
                 cone.Close();
+                datos = coman.Parameters["po_retorno"].Value.ToString();
             }
             catch
             {
                 throw;
 
             }
+            return datos;
         }
 
-        public void sp_eliminar_ventas(int PI_CODIGO_VENTAS)
+        public string sp_eliminar_ventas(int PI_CODIGO_VENTAS)
         {
+            string datos = "";
+
             OracleConnection cone = new OracleConnection(cadenaDeConeccion);
             OracleCommand coman = new OracleCommand("USER_ORA.PKG_VENTAS.SP_DELETE_VENTAS", cone);
             coman.CommandType = CommandType.StoredProcedure;
 
             coman.Parameters.Add("CODIGO_VENTA", PI_CODIGO_VENTAS);
+            coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
+            coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
 
             try
             {
                 cone.Open();
                 coman.ExecuteNonQuery();
                 cone.Close();
+                datos = coman.Parameters["po_retorno"].Value.ToString();
+
             }
             catch
             {
                 throw;
 
             }
+            return datos;
         }
 
         public string SP_UPDATE_CLIENTES(int PI_CODIGO_CLIENTE,
@@ -453,8 +416,8 @@ namespace f2
             coman.Parameters.Add("PI_NOMBRE", PI_NOMBRE.Trim());
             coman.Parameters.Add("PI_APELLIDO", PI_APELLIDO.Trim());
 
-            //coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
-            //coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
+            coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
+            coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
 
 
             try
@@ -462,7 +425,7 @@ namespace f2
                 cone.Open();
                 coman.ExecuteNonQuery();
                 cone.Close();
-                //datos = coman.Parameters["po_retorno"].Value.ToString();
+                datos = coman.Parameters["po_retorno"].Value.ToString();
 
             }
             catch
@@ -488,8 +451,8 @@ namespace f2
             coman.Parameters.Add("PI_CANTIDAD", PI_CANTIDAD.Trim());
             coman.Parameters.Add("PI_CODIGO_PRODUCTO", PI_CODIGO_PRODUCTO);
 
-            //coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
-            //coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
+            coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
+            coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
 
 
             try
@@ -497,7 +460,7 @@ namespace f2
                 cone.Open();
                 coman.ExecuteNonQuery();
                 cone.Close();
-                //datos = coman.Parameters["po_retorno"].Value.ToString();
+                datos = coman.Parameters["po_retorno"].Value.ToString();
 
             }
             catch
@@ -527,8 +490,9 @@ namespace f2
             coman.Parameters.Add("PI_CODIGO_CLIENTE", PI_CODIGO_CLIENTE);
             coman.Parameters.Add("PI_CODIGO_VENTA", PI_CODIGO_VENTA);
 
-            //coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
-            //coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
+            coman.Parameters.Add("po_retorno", OracleDbType.NVarchar2, 500);
+            coman.Parameters["po_retorno"].Direction = ParameterDirection.Output;
+
 
 
             try
@@ -536,8 +500,7 @@ namespace f2
                 cone.Open();
                 coman.ExecuteNonQuery();
                 cone.Close();
-                //datos = coman.Parameters["po_retorno"].Value.ToString();
-
+                datos = coman.Parameters["po_retorno"].Value.ToString();
             }
             catch
             {
